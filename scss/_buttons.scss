@@ -51,6 +51,20 @@
   }
 }
 
+// Overide btn style
+.btn.btn-text {
+  display: inline;
+  vertical-align: initial;
+  border: 0;
+  padding: 0;
+
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: none;
+  }
+}
+
 // Future-proof disabling of clicks on `<a>` elements
 a.btn.disabled,
 fieldset:disabled a.btn {
@@ -71,6 +85,12 @@ fieldset:disabled a.btn {
 @each $color, $value in $theme-colors {
   .btn-outline-#{$color} {
     @include button-outline-variant($value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-text-#{$color} {
+    @include button-text-variant($value);
   }
 }
 
