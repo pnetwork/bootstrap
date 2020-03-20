@@ -16,8 +16,9 @@
   padding: $nav-link-padding-y $nav-link-padding-x;
   text-decoration: if($link-decoration == none, null, none);
 
-  @include hover-focus() {
-    text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: if($link-hover-decoration == underline, none, null);
   }
 
   // Disabled state lightens text
