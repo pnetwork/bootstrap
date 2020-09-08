@@ -3,7 +3,8 @@
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
 
-@mixin button-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%)) {
+@mixin button-variant($background, $border, $hover-background: darken($background, 10%), $hover-border: darken($border, 10%), $active-background: darken($background, 20%), $active-border: darken($border, 20%)) {
+  min-width: 100px;
   color: color-yiq($background);
   @include gradient-bg($background);
   border-color: $border;
@@ -62,12 +63,13 @@
 }
 
 @mixin button-outline-variant($color, $color-hover: $color, $active-background: $color, $active-border: $color) {
+  min-width: 100px;
   color: $color;
   border-color: $color;
 
   @include hover() {
     color: $color-hover;
-    background-color: transparentize($active-background, .9);
+    background-color: transparentize($active-background, .85);
     border-color: $active-border;
   }
 
@@ -100,17 +102,17 @@
   }
 }
 
-@mixin button-text-variant($color) {
+@mixin button-text-variant($color, $hover-color: darken($color, 10%), $active-color: darken($color, 20%)) {
   color: $color;
 
   @include hover() {
-    color: $color;
-    text-decoration: underline;
+    color: $hover-color;
   }
 
-  &.disabled,
-  &:disabled {
-    text-decoration: none;
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    color: $active-color;
   }
 }
 

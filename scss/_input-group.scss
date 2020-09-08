@@ -74,6 +74,7 @@
   // as our inputs.
   .btn {
     position: relative;
+    min-width: unset;
     z-index: 2;
 
     &:focus {
