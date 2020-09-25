@@ -76,6 +76,9 @@
   &:focus,
   &.focus {
     box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
+    color: $color-hover;
+    background-color: transparentize($active-background, .85);
+    border-color: $active-border;
   }
 
   &.disabled,
